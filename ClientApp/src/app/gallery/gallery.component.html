@@ -7,6 +7,6 @@
 </div>
 <div class="wrapper">
   <div class="row itemsList">
-    <div class="col-sm-4" *ngFor="let item of itemsList">{{item.name}}</div>
+    <div class="col-sm-4" *ngFor="let item of itemsList"><app-item [item]="item"></app-item></div>
   </div>
  </div>

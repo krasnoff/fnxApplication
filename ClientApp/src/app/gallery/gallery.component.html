@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div class="form-group searchBox">
+    <input type="text" class="form-control" [(ngModel)]="searchWord" />
+    &nbsp;
+    <button class="btn btn-primary" (click)="search()">Search!</button>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="row itemsList">
+    <div class="col-sm-4" *ngFor="let item of itemsList">{{item.name}}</div>
+  </div>
+ </div>

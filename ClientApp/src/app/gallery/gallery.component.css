@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+  .wrapper .searchBox {
+    display: flex;
+    max-width: 300px;
+  }
+
+  .wrapper .itemsList {
+
+  }

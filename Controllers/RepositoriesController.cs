@@ -38,7 +38,7 @@ namespace fnxApplication.Controllers
             string bookmarkStr = JsonConvert.SerializeObject(repository);
             HttpContext.Session.SetString("bookmarkList", bookmarkStr);
 
-            return Ok("session data set");
+            return Ok("{\"res\": \"session data set\"}");
         }
 
         // GET: api/Repositories/getBookmarks

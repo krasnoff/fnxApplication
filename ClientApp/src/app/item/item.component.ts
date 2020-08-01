@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../Items/item';
+import { ItemsService } from './items.service';
 
 @Component({
   selector: 'app-item',
@@ -10,9 +11,14 @@ export class ItemComponent implements OnInit {
 
   @Input() item: Item;
 
-  constructor() { }
+  constructor(public itemService: ItemsService) { }
 
   ngOnInit() {
+  }
+
+  async addBookmark() {
+    const res = await this.itemService.postBookmarks(this.item);
+    console.log(res);    
   }
 
 }

@@ -6,9 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ItemComponent } from './item/item.component';
 
@@ -16,9 +13,6 @@ import { ItemComponent } from './item/item.component';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     GalleryComponent,
     ItemComponent
   ],
@@ -28,8 +22,6 @@ import { ItemComponent } from './item/item.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: GalleryComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'gallery', component: GalleryComponent },
     ])
   ],

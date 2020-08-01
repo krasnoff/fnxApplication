@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="form-group searchBox">
+    List Of Bookmarks
+  </div>
+</div>
+<div class="wrapper">
+  <div class="row itemsList">
+    <div class="col-sm-4" *ngFor="let item of itemsList"><app-item [item]="item"></app-item></div>
+  </div>
+  <div class="row itemsList" *ngIf="itemsList.length === 0">
+    There are no bookmarks
+  </div>
+</div>

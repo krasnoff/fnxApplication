@@ -17,8 +17,10 @@ export class ItemComponent implements OnInit {
   }
 
   async addBookmark() {
-    const res = await this.itemService.postBookmarks(this.item);
-    console.log(res);    
+    const res: any = await this.itemService.postBookmarks(this.item);
+    if (res.res === 'session data set') {
+      alert("Bookmark created successfully");
+    }
   }
 
 }

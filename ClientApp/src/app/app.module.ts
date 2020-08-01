@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ItemComponent } from './item/item.component';
+import { BookmarkListComponent } from './bookmark-list/bookmark-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     GalleryComponent,
-    ItemComponent
+    ItemComponent,
+    BookmarkListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -23,6 +25,7 @@ import { ItemComponent } from './item/item.component';
     RouterModule.forRoot([
       { path: '', component: GalleryComponent, pathMatch: 'full' },
       { path: 'gallery', component: GalleryComponent },
+      { path: 'bookmarks', component: BookmarkListComponent },
     ])
   ],
   providers: [],

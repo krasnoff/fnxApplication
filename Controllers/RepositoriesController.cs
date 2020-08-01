@@ -16,13 +16,6 @@ namespace fnxApplication.Controllers
     [ApiController]
     public class RepositoriesController : ControllerBase
     {
-        // GET: api/Repositories
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET: api/Repositories/5
         [HttpGet("{searchWord}", Name = "Get")]
         public List<Repository> Get(string searchWord)
@@ -31,22 +24,33 @@ namespace fnxApplication.Controllers
             return service.getRepository(searchWord);
         }
 
-        // POST: api/Repositories
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // POST: api/addBookmark
+        [HttpPost("addBookmark")]
+        public IActionResult addBookmark([FromBody] Repository item)
         {
+            List<Repository> repository = new List<Repository>();
+            string sessionData = HttpContext.Session.GetString("bookmarkList");
+            if (!String.IsNullOrEmpty(sessionData)) {
+                repository = JsonConvert.DeserializeObject<List<Repository>>(sessionData);
+            }
+
+            repository.Add(item);
+            string bookmarkStr = JsonConvert.SerializeObject(repository);
+            HttpContext.Session.SetString("bookmarkList", bookmarkStr);
+
+            return Ok("session data set");
         }
 
-        // PUT: api/Repositories/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // GET: api/Repositories/getBookmarks
+        [HttpGet("getBookmarks")]
+        public IActionResult getBookmarks()
         {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            string sessionData = HttpContext.Session.GetString("bookmarkList");
+            if (String.IsNullOrEmpty(sessionData))
+            {
+                sessionData = "[]";
+            }
+            return Ok(sessionData);
         }
     }
 }

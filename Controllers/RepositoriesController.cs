@@ -17,6 +17,7 @@ namespace fnxApplication.Controllers
     public class RepositoriesController : ControllerBase
     {
         // GET: api/Repositories/5
+        // fetches repositories from github
         [HttpGet("{searchWord}", Name = "Get")]
         public List<Repository> Get(string searchWord)
         {
@@ -25,6 +26,7 @@ namespace fnxApplication.Controllers
         }
 
         // POST: api/addBookmark
+        // adds bookmark to session object
         [HttpPost("addBookmark")]
         public IActionResult addBookmark([FromBody] Repository item)
         {
@@ -42,6 +44,7 @@ namespace fnxApplication.Controllers
         }
 
         // GET: api/Repositories/getBookmarks
+        // gets list of bookmark from session object
         [HttpGet("getBookmarks")]
         public IActionResult getBookmarks()
         {
